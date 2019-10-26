@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            font-family: "Open Sans",sans-serif;
+            box-sizing: border-box;
+        }
+
+        body{
+            background: #7ed6df;
+            transition: .6s linear;
+        }
+
+        .product-card{
+            border-radius: 20px;
+            width: 400px;
+            background: #ecedef;
+            padding: 40px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-transform: uppercase;
+        }
+
+        .product-card h1{
+            font-size: 22px;
+            margin-bottom: 4px;
+            
+        }
+        .product-card p{
+            font-size: 13px;
+            color: #bbb;
+        }
+        
+        .product-pic{
+            background-image: url(1.png);
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: .6s linear;
+        }
+
+        .product-colors{
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .product-colors span{
+            width:14px;
+            height:14px;
+            margin:0 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+        }
+        .blue{
+            background: #7ed6df;
+        }
+        .green{
+            background: #badc58;
+        }
+        .yellow{
+            background: #f9ca24;
+        }
+        .rose{
+            background: #ff7979;
+        }
+        .product-colors .active::after{
+            content: "";
+            width: 22px;
+            height:22px;
+            border: 2px solid #8888;
+            position: absolute;
+            border-radius: 50%;
+            box-sizing: border-box;
+            left: -4px;
+            top: -4px;
+
+
+        }
+
+        .product-info{
+            display: flex;
+            align-items: center;
+        }
+        .producu-price{
+            color:#7ed6df;
+            font-size: 26px;
+        }
+
+        .product-button{
+            margin-left: auto;
+            color: #7ed6df;
+            text-decoration: none;
+            border: 2px solid;
+            padding: 8px 24px;
+            border-radius: 20px;
+            transition: .4s linear;
+        }
+        .product-button:hover{
+            transform: scale(1.06);
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <h1>Original Shop</h1>
+        <p>Lorem ipsm dolor sit smet.</p>
+        <div class="product-pic">
+        </div>
+        <div class="product-colors">
+            <span class="blue active" data-color="#3498db" data-pic="url(1.png)"></span>
+            <span class="green" data-color="#2ecc71" data-pic="url(2.png)"></span>
+            <span class="yellow" data-color="#f1c40f" data-pic="url(3.png)"></span>
+            <span class="rose" data-color="#ff7979" data-pic="url(4.png)"></span>
+        </div>
+        <div class="product-info">
+            <div class="product-price">$90</div>
+            <a href="#" class="product-button">Add to Cart</a>
+        </div>
+    </div>
+    <script>
+        $(".product-colors span").click(function(){
+            $(".product-colors span").removeClass("active");
+            $(this).addClass("active");
+            $("body").css("background",$(this).attr("data-color"))
+            $(".product-price").css("color",$(this).attr("data-color"))
+            $(".product-button").css("color",$(this).attr("data-color"))
+            $(".product-pic").css("background-image",$(this).attr("data-pic"))
+        });
+    </script>
+</body>
+</html>
